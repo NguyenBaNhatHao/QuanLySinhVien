@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +28,7 @@ namespace QuanLySinhVien
             item.SubItems.Add(txtTen.Text);
             item.SubItems.Add(txtTuoi.Text);
             item.SubItems.Add(txtEmail.Text); ;
-            listView1.Items.Add(item);
+            dgvtab.Items.Add(item);
             txtMSSV.Clear();
             txtTen.Clear();
             txtTuoi.Clear();
@@ -37,15 +38,38 @@ namespace QuanLySinhVien
 
         private void txtDelete_Click(object sender, EventArgs e)
         {
-            if(listView1.Items.Count > 0 && listView1.SelectedItems.Count != 0)
+            if(dgvtab.Items.Count > 0 && dgvtab.SelectedItems.Count != 0)
             {
-                listView1.Items.Remove(listView1.SelectedItems[0]);
+                dgvtab.Items.Remove(dgvtab.SelectedItems[0]);
             }
-            else if(listView1.SelectedItems.Count == 0)
+            else if(dgvtab.SelectedItems.Count == 0)
             {
                 string message = "vui lòng chọn mssv ở danh sách";
                 MessageBox.Show(message);
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Vui lòng nhập mã học sinh cần sửa", "Thông báo", 
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bạn có chắc muốn thoát không?",
+                "Error", MessageBoxButtons.YesNoCancel);
+            Application.Exit();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtMSSV.Clear();
+            txtTen.Clear();
+            txtTuoi.Clear();
+            txtEmail.Clear();
+            txtLuong.Clear();
+            dgvtab.Items.Clear();
         }
     }
 }
