@@ -16,6 +16,7 @@ namespace QuanLySinhVien
         public Form1()
         {
             InitializeComponent();
+            label7.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -70,6 +71,12 @@ namespace QuanLySinhVien
             txtEmail.Clear();
             txtLuong.Clear();
             dgvtab.Items.Clear();
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = new ListViewItem(txtMSSV.Text);
+            item.Text = txtMSSV.Text;
         }
     }
 }
