@@ -28,7 +28,6 @@ namespace QuanLySinhVien
                 return;
             }
             ListViewItem items = new ListViewItem(txtMSSV.Text);
-            items.SubItems.Add(txtMSSV.Text);
             items.SubItems.Add(txtTen.Text);
             items.SubItems.Add(txtTuoi.Text);
             items.SubItems.Add(txtEmail.Text);
@@ -55,8 +54,12 @@ namespace QuanLySinhVien
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vui lòng nhập mã học sinh cần sửa", "Thông báo", 
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int Index = 0;
+            if(dgvtab.SelectedItems.Count > 0)
+            {
+                Index = this.dgvtab.SelectedItems[0].Index;
+                dgvtab.Items[Index].Text = txtMSSV.Text;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
