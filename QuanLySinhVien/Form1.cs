@@ -83,7 +83,6 @@ namespace QuanLySinhVien
         {
             foreach (ListViewItem item in dgvtab.Items)
             {
-                Console.WriteLine(item.Text[1].ToString());
                 if (txtMSSV.Text == item.Text) 
                 {
                     MessageBox.Show("MSSV found !");
