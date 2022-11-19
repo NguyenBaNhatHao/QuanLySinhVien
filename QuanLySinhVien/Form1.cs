@@ -64,9 +64,17 @@ namespace QuanLySinhVien
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bạn có chắc muốn thoát không?",
+            DialogResult dr = MessageBox.Show("Bạn có chắc muốn thoát không?",
                 "Error", MessageBoxButtons.YesNoCancel);
-            Application.Exit();
+            if(dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         private void btnNew_Click(object sender, EventArgs e)
